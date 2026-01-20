@@ -16,6 +16,13 @@
   padding-right: 0.25rem;
 }
 
+.arch-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+
 .arch-sidebar.collapsed {
   width: 30px;
 }
@@ -60,4 +67,29 @@
   .arch-visual {
     display: none; /* hide visual & notes */
   }
+
+  .arch-sidebar.collapsed .arch-items {
+    display: none;
+  }
 }
+
+/* Desktop RULES */
+@media (min-width: 769px) {
+  .arch-sidebar {
+    width: 200px;
+  }
+
+  .arch-sidebar.collapsed {
+    width: 200px; /* force open */
+  }
+
+  .arch-toggle {
+    display: none; /* hide toggle on desktop */
+  }
+
+  .arch-visual {
+    display: flex;
+  }
+}
+
+

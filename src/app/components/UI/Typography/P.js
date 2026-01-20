@@ -9,7 +9,7 @@ export default function P({children,style}) {
             lineHeight: "1.5",
             margin: 0,
             textWrap:"balance",
-            maxHeight: "clamp(120px, 25vh, 260px)", 
+            maxHeight: "clamp(100px, 25vh, 260px)", 
             overflowY: "auto",
             ...style
         }}

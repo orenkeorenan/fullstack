@@ -65,8 +65,8 @@ export default function Architecture({ className }) {
             <H3>{collapsed ? "☰" : "←"}</H3>
           </button>
 
-          {!collapsed &&
-            STEPS.map((step) => (
+          <div className="arch-items">
+            {STEPS.map((step) => (
               <div
                 key={step.id}
                 onClick={() => handleSelect(step)}
@@ -84,6 +84,8 @@ export default function Architecture({ className }) {
                 <P>{step.title}</P>
               </div>
             ))}
+          </div>
+
         </div>
 
         {/* Content */}
