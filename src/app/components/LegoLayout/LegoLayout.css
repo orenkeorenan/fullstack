@@ -18,6 +18,12 @@
 .h5 { grid-area: h5; }
 .h6 { grid-area: h6; }
 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  min-height: 0;
+  overflow: auto;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   
+}
 
 
 
