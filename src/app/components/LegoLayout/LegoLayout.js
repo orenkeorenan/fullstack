@@ -16,7 +16,7 @@ export default function LegoLayout() {
             image="/hero-ko.png"
             title="OREN BERNARDUS"
             subtitle="Fullstack Developer"
-            description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page e"
+            description="I build software with a strong focus on real-world usability, system clarity, and long-term maintainability. With experience across engineering, logistics, and business operations, I don’t just write code—I design systems that make sense, scale well, and stay understandable. My goal is to create products that feel simple, reliable, and purposeful."
         />
         <Career className="h2"/>
         <ProjectList className="h3" />

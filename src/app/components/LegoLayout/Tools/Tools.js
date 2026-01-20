@@ -39,15 +39,15 @@ export default function Tools({ className }) {
         >
             {splitTools.map((row, index) => (
                 <div key={index} className="tools-row">
-                <div
-                    className={`tools-track ${index % 2 === 0 ? 'to-right' : 'to-left'}`}
-                >
-                    {[...row, ...row, ...row, ...row].map((tool, i) => (
-                    <span key={i} className="tool-pill">
-                        {tool}
-                    </span>
-                    ))}
-                </div>
+                    <div
+                        className={`tools-track ${index % 2 === 0 ? 'to-right' : 'to-left'}`}
+                    >
+                        {[...row, ...row, ...row, ...row].map((tool, i) => (
+                        <span key={i} className="tool-pill">
+                            {tool}
+                        </span>
+                        ))}
+                    </div>
                 </div>
             ))}
         </Hero>

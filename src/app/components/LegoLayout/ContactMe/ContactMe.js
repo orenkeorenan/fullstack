@@ -21,15 +21,15 @@ export default function ContactMe({ className }) {
           <strong>Contact</strong>
         </H1>
           
-        <H2 style={{ fontSize: "0.8rem", opacity: 0.7 }}>
+        <H3 style={{ fontSize: "0.8rem", opacity: 0.7 }}>
           Let’s work together or talk.
-        </H2>
+        </H3>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
         <ContactRow label="Email" value="bernardusoren123@gmail.com" />
-        <ContactRow label="GitHub" value="github.com/orenkeorenan" />
         <ContactRow label="LinkedIn" value="linkedin.com/in/oren-bernardus" />
+        <ContactRow label="Phone" value="010-4394-2212" />
         <ContactRow label="Location" value="Busan, South Korea" />
       </div>
 
@@ -50,7 +50,7 @@ function ContactRow({ label, value }) {
       <P 
         style={{ 
           opacity: 0.5 ,
-          fontSize:"clamp(1rem, 0.95rem + 0.4vw, 1.3rem)" 
+          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1rem)" 
         }}
       >
         {label}
@@ -58,7 +58,7 @@ function ContactRow({ label, value }) {
       <P 
         style={{ 
           fontWeight: 500, 
-          fontSize:"clamp(1rem, 0.95rem + 0.4vw, 1.3rem)" 
+          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1rem)" 
         }}
       >
         : {value}

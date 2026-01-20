@@ -4,6 +4,7 @@ import Hero from "../../UI/Hero/Hero"
 import H3 from "../../UI/Typography/H3"
 import P from "../../UI/Typography/P"
 import H2 from "../../UI/Typography/H2"
+import "./Architecture.css"
 
 const STEPS = [
   {
@@ -43,171 +44,128 @@ const STEPS = [
   }
 ]
 
-
 export default function Architecture({ className }) {
   const [active, setActive] = useState(STEPS[0])
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(true)
+
+  const handleSelect = (step) => {
+    setActive(step)
+    setCollapsed(true) // auto-collapse after selection
+  }
 
   return (
-    <Hero
-      className={className}
-      style={{
-        display: "flex",
-        height: "100%",
-        gap: "0.5rem",
-        overflow: "hidden"
-      }}
-    >
-      {/* Sidebar */}
-      <div
-        style={{
-          width: collapsed ? "24px" : "200px",
-          transition: "0.2s ease",
-          borderRight: "1px dashed rgba(0,0,0,0.2)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.25rem",
-          paddingRight: "0.25rem"
-        }}
-      >
-        {/* Collapse button */}
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          style={{
-            padding: "0.2rem",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            opacity: 0.6
-          }}
-        >
-          <H3>
-            {collapsed ? "→" : "Dashboard ←"}
-          </H3>
-        </button>
+    <Hero className={className}>
+      <div className="arch-container">
+        {/* Sidebar */}
+        <div className={`arch-sidebar ${collapsed ? "collapsed" : ""}`}>
+          <button
+            className="arch-toggle"
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            <H3>{collapsed ? "☰" : "←"}</H3>
+          </button>
 
-        {!collapsed &&
-          STEPS.map(step => (
+          {!collapsed &&
+            STEPS.map((step) => (
+              <div
+                key={step.id}
+                onClick={() => handleSelect(step)}
+                style={{
+                  cursor: "pointer",
+                  padding: "0.35rem",
+                  borderRadius: "0.4rem",
+                  background:
+                    active.id === step.id
+                      ? "rgba(0,0,0,0.05)"
+                      : "transparent",
+                  fontWeight: active.id === step.id ? 600 : 400
+                }}
+              >
+                <P>{step.title}</P>
+              </div>
+            ))}
+        </div>
+
+        {/* Content */}
+        <div className="arch-content">
+          <div style={{ display: "flex", flexDirection: "column", gap: ".5rem" }}>
             <div
-              key={step.id}
-              onClick={() => setActive(step)}
               style={{
-                cursor: "pointer",
-                padding: "0.35rem",
-                borderRadius: "0.4rem",
-                background:
-                  active.id === step.id
-                    ? "rgba(0,0,0,0.05)"
-                    : "transparent",
-                fontWeight: active.id === step.id ? 600 : 400
+                display:"flex",
+                gap:"1rem",
+                alignItems:"baseline",
+              }}
+            >
+              <H2>My Architecture Process</H2>
+              <P style={{fontSize: "0.9rem", opacity: 0.7, alignSelf: "center"}}>
+                on {active.title}
+              </P>
+            </div>
+            <H3>{active.desc}</H3>
+          </div>
+
+          <P>{active.content}</P>
+
+          {/* Visual and notes */}
+          <div className="arch-visual">
+            <H3>Visual Thinking</H3>
+
+            <div
+              style={{
+                border: "3px dashed rgba(0,0,0,0.2)",
+                borderRadius: "0.5rem",
+                padding: "0.5rem",
+                fontSize: "0.7rem",
+                lineHeight: 1.4,
+                opacity: 0.8
               }}
             >
               <P>
+                {active.id === "idea" && (
+                  <>
+                    → Problem → Pain → Real need  
+                    → Not a feature, a solution  
+                    → Must exist even without UI  
+                  </>
+                )}
 
-                {step.title}
+                {active.id === "users" && (
+                  <>
+                    → Beginner vs power user  
+                    → Motivation matters  
+                    → Context of use  
+                  </>
+                )}
+
+                {active.id === "structure" && (
+                  <>
+                    UI → Logic → Data  
+                    Clear boundaries  
+                    Replaceable modules  
+                  </>
+                )}
+
+                {active.id === "mvp" && (
+                  <>
+                    Core action only  
+                    Manual allowed  
+                    Ugly is fine  
+                    Ship first  
+                  </>
+                )}
+
+                {active.id === "scale" && (
+                  <>
+                    Bottlenecks  
+                    Async boundaries  
+                    Growth paths  
+                  </>
+                )}
               </P>
             </div>
-          ))}
-      </div>
-
-      {/* Content */}
-      <div
-        style={{
-          flex: 1,
-          padding: "0.5rem",
-          display: "flex",
-          flexDirection: "column",
-          gap:"1rem"
-        }}
-      >
-        <div
-          style={{
-            display:"flex",
-            flexDirection:'column',
-            gap:".5rem"
-          }}
-        >
-          <H2>
-            My Architecture Process
-          </H2>
-          <H3>
-            {active.desc}
-          </H3>
-        </div>
-        <P>
-          {active.content}
-        </P>
-        {/* Visual and notes */}
-        <div
-          style={{
-            borderTop: "2px dashed rgba(0,0,0,0.2)",
-            paddingTop: "0.75rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem"
-          }}
-        >
-          <H3>
-            Visual Thinking
-          </H3>
-
-          <div
-            style={{
-              border: "3px dashed rgba(0,0,0,0.2)",
-              borderRadius: "0.5rem",
-              padding: "0.5rem",
-              fontSize: "0.7rem",
-              lineHeight: 1.4,
-              opacity: 0.8
-            }}
-          >
-            <P>
-              {active.id === "idea" && (
-                <>
-                  → Problem → Pain → Real need  
-                  → Not a feature, a solution  
-                  → Must exist even without UI  
-                </>
-              )}
-
-              {active.id === "users" && (
-                <>
-                  → Beginner vs power user  
-                  → Motivation matters  
-                  → Context of use  
-                </>
-              )}
-
-              {active.id === "structure" && (
-                <>
-                  UI → Logic → Data  
-                  Clear boundaries  
-                  Replaceable modules  
-                </>
-              )}
-
-              {active.id === "mvp" && (
-                <>
-                  Core action only  
-                  Manual allowed  
-                  Ugly is fine  
-                  Ship first  
-                </>
-              )}
-
-              {active.id === "scale" && (
-                <>
-                  Bottlenecks  
-                  Async boundaries  
-                  Growth paths  
-                </>
-              )}
-            </P>
           </div>
         </div>
       </div>
-
-
     </Hero>
   )
 }
