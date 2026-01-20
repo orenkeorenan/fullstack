@@ -50,7 +50,7 @@ function ContactRow({ label, value }) {
       <P 
         style={{ 
           opacity: 0.5 ,
-          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1rem)" 
+          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1.3rem)" 
         }}
       >
         {label}
@@ -58,7 +58,7 @@ function ContactRow({ label, value }) {
       <P 
         style={{ 
           fontWeight: 500, 
-          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1rem)" 
+          fontSize:"clamp(.8rem, 0.95rem + 0.4vw, 1.3rem)" 
         }}
       >
         : {value}
