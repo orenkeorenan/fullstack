@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import Hero from '../../UI/Hero/Hero'
 import H2 from '../../UI/Typography/H2'
-import H1 from '../../UI/Typography/H1'
 import P from '../../UI/Typography/P'
+import H3 from '../../UI/Typography/H3'
+import H1 from '../../UI/Typography/H1'
 
 export default function Career({ className }) {
   const items = [
@@ -61,7 +62,7 @@ export default function Career({ className }) {
         flexDirection: 'column',
         gap: '1rem',
         height: '100%',
-        justifyContent:"center"
+        justifyContent: 'center',
       }}
     >
       {/* Header */}
@@ -71,7 +72,7 @@ export default function Career({ className }) {
           display:'flex',
           flexDirection:'column',
           gap:"1rem",
-          position:"relative"
+          position:"relative",
         }}
       >
         <div
@@ -82,7 +83,7 @@ export default function Career({ className }) {
             alignItems: 'baseline',
           }}
         >
-          <H2 style={{ margin: 0 }}>{current.title}</H2>
+          <H3 style={{ margin: 0 }}>{current.title}</H3>
           <P style={{ opacity: 0.6 }}>
             {current.where}
           </P>
@@ -92,7 +93,6 @@ export default function Career({ className }) {
           style={{
             display:"flex",
             gap:"1rem",
-            alignItems:"center"
           }}
         >
           {/* Year */}
@@ -108,9 +108,9 @@ export default function Career({ className }) {
               padding:"0.5rem",
             }}
           >
-            <span>{current.yearFrom}</span>
+            <P>{current.yearFrom}</P>
             <span style={{ opacity: 0.4 }}>—</span>
-            <span>{current.yearTo}</span>
+            <P>{current.yearTo}</P>
           </div>
 
           {/* Description */}

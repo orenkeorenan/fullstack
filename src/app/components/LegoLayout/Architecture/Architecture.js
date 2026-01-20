@@ -1,6 +1,9 @@
 "use client"
 import React, { useState } from "react"
 import Hero from "../../UI/Hero/Hero"
+import H3 from "../../UI/Typography/H3"
+import P from "../../UI/Typography/P"
+import H2 from "../../UI/Typography/H2"
 
 const STEPS = [
   {
@@ -58,7 +61,7 @@ export default function Architecture({ className }) {
       {/* Sidebar */}
       <div
         style={{
-          width: collapsed ? "24px" : "110px",
+          width: collapsed ? "24px" : "200px",
           transition: "0.2s ease",
           borderRight: "1px dashed rgba(0,0,0,0.2)",
           display: "flex",
@@ -71,7 +74,6 @@ export default function Architecture({ className }) {
         <button
           onClick={() => setCollapsed(!collapsed)}
           style={{
-            fontSize: "0.7rem",
             padding: "0.2rem",
             background: "none",
             border: "none",
@@ -79,7 +81,9 @@ export default function Architecture({ className }) {
             opacity: 0.6
           }}
         >
-          {collapsed ? "→" : "Dashboard ←"}
+          <H3>
+            {collapsed ? "→" : "Dashboard ←"}
+          </H3>
         </button>
 
         {!collapsed &&
@@ -91,7 +95,6 @@ export default function Architecture({ className }) {
                 cursor: "pointer",
                 padding: "0.35rem",
                 borderRadius: "0.4rem",
-                fontSize: "0.7rem",
                 background:
                   active.id === step.id
                     ? "rgba(0,0,0,0.05)"
@@ -99,7 +102,10 @@ export default function Architecture({ className }) {
                 fontWeight: active.id === step.id ? 600 : 400
               }}
             >
-              {step.title}
+              <P>
+
+                {step.title}
+              </P>
             </div>
           ))}
       </div>
@@ -121,39 +127,33 @@ export default function Architecture({ className }) {
             gap:".5rem"
           }}
         >
-          <div style={{ fontSize: "0.9rem", fontWeight: 600 }}>
+          <H2>
             My Architecture Process
-          </div>
-          <div style={{ fontSize: "0.7rem", opacity: 0.6 }}>
+          </H2>
+          <H3>
             {active.desc}
-          </div>
+          </H3>
         </div>
-        <div
-          style={{
-            fontSize: "0.75rem",
-            lineHeight: 1.4,
-            opacity: 0.8
-          }}
-        >
+        <P>
           {active.content}
-        </div>
+        </P>
         {/* Visual and notes */}
         <div
           style={{
-            borderTop: "1px dashed rgba(0,0,0,0.2)",
+            borderTop: "2px dashed rgba(0,0,0,0.2)",
             paddingTop: "0.75rem",
             display: "flex",
             flexDirection: "column",
             gap: "0.75rem"
           }}
         >
-          <div style={{ fontSize: "0.7rem", fontWeight: 600, opacity: 0.7 }}>
+          <H3>
             Visual Thinking
-          </div>
+          </H3>
 
           <div
             style={{
-              border: "1px dashed rgba(0,0,0,0.2)",
+              border: "3px dashed rgba(0,0,0,0.2)",
               borderRadius: "0.5rem",
               padding: "0.5rem",
               fontSize: "0.7rem",
@@ -161,46 +161,48 @@ export default function Architecture({ className }) {
               opacity: 0.8
             }}
           >
-            {active.id === "idea" && (
-              <>
-                → Problem → Pain → Real need  
-                → Not a feature, a solution  
-                → Must exist even without UI  
-              </>
-            )}
+            <P>
+              {active.id === "idea" && (
+                <>
+                  → Problem → Pain → Real need  
+                  → Not a feature, a solution  
+                  → Must exist even without UI  
+                </>
+              )}
 
-            {active.id === "users" && (
-              <>
-                → Beginner vs power user  
-                → Motivation matters  
-                → Context of use  
-              </>
-            )}
+              {active.id === "users" && (
+                <>
+                  → Beginner vs power user  
+                  → Motivation matters  
+                  → Context of use  
+                </>
+              )}
 
-            {active.id === "structure" && (
-              <>
-                UI → Logic → Data  
-                Clear boundaries  
-                Replaceable modules  
-              </>
-            )}
+              {active.id === "structure" && (
+                <>
+                  UI → Logic → Data  
+                  Clear boundaries  
+                  Replaceable modules  
+                </>
+              )}
 
-            {active.id === "mvp" && (
-              <>
-                Core action only  
-                Manual allowed  
-                Ugly is fine  
-                Ship first  
-              </>
-            )}
+              {active.id === "mvp" && (
+                <>
+                  Core action only  
+                  Manual allowed  
+                  Ugly is fine  
+                  Ship first  
+                </>
+              )}
 
-            {active.id === "scale" && (
-              <>
-                Bottlenecks  
-                Async boundaries  
-                Growth paths  
-              </>
-            )}
+              {active.id === "scale" && (
+                <>
+                  Bottlenecks  
+                  Async boundaries  
+                  Growth paths  
+                </>
+              )}
+            </P>
           </div>
         </div>
       </div>

@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react'
 import Hero from '../../UI/Hero/Hero'
-import H1 from '../../UI/Typography/H1'
-import P from '../../UI/Typography/P'
+import H2 from '../../UI/Typography/H2'
 
 export default function ProjectList({ className }) {
   const projects = [
@@ -44,7 +43,7 @@ export default function ProjectList({ className }) {
             gap: "1rem",
         }}
     >
-        <H1>Project List</H1>
+        <H2>Project List</H2>
 
         <div
             style={{

@@ -1,5 +1,9 @@
 import SendMailButton from '../../UI/Buttons/SendMailButton'
 import Hero from '../../UI/Hero/Hero'
+import H1 from '../../UI/Typography/H1'
+import H2 from '../../UI/Typography/H2'
+import H3 from '../../UI/Typography/H3'
+import P from '../../UI/Typography/P'
 
 export default function ContactMe({ className }) {
   return (
@@ -13,10 +17,13 @@ export default function ContactMe({ className }) {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-        <strong style={{ fontSize: "1rem" }}>Contact</strong>
-        <span style={{ fontSize: "0.8rem", opacity: 0.7 }}>
+        <H1>
+          <strong>Contact</strong>
+        </H1>
+          
+        <H2 style={{ fontSize: "0.8rem", opacity: 0.7 }}>
           Let’s work together or talk.
-        </span>
+        </H2>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -36,13 +43,26 @@ function ContactRow({ label, value }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "70px 1fr",
-        fontSize: "0.8rem",
+        gridTemplateColumns: "90px 1fr",
         gap: "0.5rem",
       }}
     >
-      <span style={{ opacity: 0.5 }}>{label}</span>
-      <span style={{ fontWeight: 500 }}>{value}</span>
+      <P 
+        style={{ 
+          opacity: 0.5 ,
+          fontSize:"clamp(1rem, 0.95rem + 0.4vw, 1.3rem)" 
+        }}
+      >
+        {label}
+      </P>
+      <P 
+        style={{ 
+          fontWeight: 500, 
+          fontSize:"clamp(1rem, 0.95rem + 0.4vw, 1.3rem)" 
+        }}
+      >
+        : {value}
+      </P>
     </div>
   )
 }

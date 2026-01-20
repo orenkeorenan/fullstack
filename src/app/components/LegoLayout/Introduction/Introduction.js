@@ -11,8 +11,8 @@ export default function Introduction({
     subtitle,
     description,
 }) {
-    const imageSize = "clamp(110px, 22vw, 150px)";
-    const imageHeight = "clamp(160px, 28vw, 200px)";
+    const imageSize = "clamp(110px, 22vw, 250px)";
+    const imageHeight = "clamp(160px, 28vw, 330px)";
 
 
 
@@ -21,7 +21,6 @@ export default function Introduction({
             <div
                 style={{
                     display:"flex",
-                    alignItems:"center",
                     gap: "clamp(1rem, 3vw, 2rem)"
                 }}
             >
